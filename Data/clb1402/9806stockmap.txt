@@ -1,0 +1,31 @@
+stock	stock acro	stock name	stock group	stock group order
+1	AKS	Alaska South SE	SEAK	1
+2	NTH	North/Centr	NCBC	2
+3	FRE	Fraser Early	FR-early	5
+4	FRL	Fraser Late	FR-late	6
+5	RBH	WCVI Hatchery	WCVI	3
+6	RBT	WCVI Natural	WCVI	3
+7	GSQ	Georgia St. Upper	GS	4
+8	GST	Georgia St. Lwr Nat	GS	4
+9	GSH	Georgia St. Lwr Hat	GS	4
+10	NKF	Nooksack Fall	PSD	7
+11	PSF	Pgt Sd Fing	PSD	7
+12	PSN	Pgt Sd NatF	PSD	7
+13	PSY	Pgt Sd Year	PSD	7
+14	NKS	Nooksack Spring	PSD	7
+15	SKG	Skagit Wild	PSD	7
+16	STL	Stillaguamish Wild	PSD	7
+17	SNO	Snohomish Wild	PSD	7
+18	WCH	WA Coastal Hat	WACST	8
+19	URB	UpRiver Brights	CR-bright	9
+20	SPR	Spring Creek Hat	CR-tule	11
+21	LRH	Lwr Bonneville Hat	CR-tule	11
+22	CWF	Fall Cowlitz Hat	CR-tule	11
+23	LRW	Lewis R Wild	CR-bright	9
+24	WSH	Willamette R	CR-sp&su	10
+25	CWS	Spr Cowlitz Hat	CR-sp&su	10
+26	SUM	Col R Summer	CR-sp&su	10
+27	ORC	Oregon Coast	ORCST	12
+28	WCN	WA Coastal Wild	WACST	8
+29	LYF	Lyons Ferry	CR-bright	9
+30	MCB	Mid Col R Brights	CR-bright	9

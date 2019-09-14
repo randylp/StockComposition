@@ -1,0 +1,26 @@
+fishery	fisheryShortName	fisheryNameLong	fishery group	fishery group order
+1	Alaska T	Alaska Troll	Alaska Troll	1
+2	North T	North BC Troll	North BC Troll	2
+3	Centr T	Central BC Troll	Central BC Troll	3
+4	WCVI T	West Coast Vancouver Island Troll	West Coast Vancouver Island Troll	4
+5	WA/OR T	Washington & Oregon Troll	Washington & Oregon Troll	5
+6	Geo St T	Georgia Strait Troll	Georgia Strait Troll	6
+7	Alaska N	Alaska Net	Alaska Net	7
+8	North N	North BC Net	North BC Net	8
+9	Centr N	Central BC Net	Central BC Net	9
+10	WCVI N	West Coast Vancouver Island Net	West Coast Vancouver Island Net	10
+11	J De F N	Juan de Fuca Net	Juan de Fuca Net	11
+12	PgtNth N	Puget Sound North Net	Puget Sound North Net	12
+13	PgtSth N	Puget Sound South Net	Puget Sound South Net	13
+14	Wash Cst N	Washington Coast Net	Washington Coast Net	14
+15	Col R N	Columbia River Net	Columbia River Net	15
+16	John St N	Johnstone Strait Net	Johnstone Strait Net	16
+17	Fraser N	Fraser Net	Fraser Net	17
+18	Alaska S	Alaska Sport	Alaska Sport	18
+19	Nor/Cen S	North & Central BC Sport	North & Central BC Sport	19
+20	WCVI S	West Coast Vancouver Island Sport	West Coast Vancouver Island Sport	20
+21	Wash Ocn S	Washington Ocean Sport	Washington Ocean Sport	21
+22	PgtNth S	Puget Sound North Sport	Puget Sound North Sport	22
+23	PgtSth S	Puget Sound South Sport	Puget Sound South Sport	23
+24	Geo St S	Georgia Strait Sport	Georgia Strait Sport	24
+25	Col R S	Terminal Sport	Terminal Sport	25

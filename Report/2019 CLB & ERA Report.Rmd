@@ -1,0 +1,319 @@
+---
+title: "2019 CLB & ERA Report Stock Composition Figures"
+output:
+  pdf_document: default
+  word_document: default
+  html_document:
+    df_print: paged
+header-includes:
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
+---
+
+```{r setup, include=FALSE}
+#prelims
+ #required packages
+  library(knitr)
+  library(rprojroot)
+  library(RColorBrewer)
+  library(ggplot2)
+  library(gridExtra)
+ #knitr options
+  knitr::opts_chunk$set(echo = TRUE) 
+  knitr::opts_knit$set(root.dir = rprojroot::find_rstudio_root_file())
+  knitr::opts_chunk$set(cache=FALSE) #cache to speed up
+```
+
+```{r prelims, echo=FALSE, warnings=FALSE}
+#load functions
+ source("Code/StackedAreaFunLibrary.R")
+#load data
+ #auxiliary data
+  auxcat     = read.delim("Data\\clb1804\\CLB1804auxCatch.txt",header=TRUE)
+  seakaddon  = read.delim("Data\\clb1804\\CLB1804SEAKaddon.txt",header=TRUE)
+ #data from CLB directory
+  fisherymap = read.delim("Data\\clb1804\\9806fisherymap.txt",header=TRUE)
+  stockmap   = read.delim("Data\\clb1804\\9806stockmap.txt",header=TRUE)
+  aabmcat    = read.csv("Data\\clb1804\\1804P_fish_AABM_CCC.csv", header=TRUE)
+  isbmcat    = read.csv("Data\\clb1804\\1804P_fish_ISBM_CCC.csv", header=TRUE)
+  obscat     = read.csv("Data\\clb1804\\obsCatch.csv", header=TRUE)
+ #not needed, but sometimes useful...
+  modfishery = read.csv("Data\\clb1804\\fisheryCodes.csv", header=TRUE)
+  modstocks  = read.csv("Data\\clb1804\\stockCodes.csv", header=TRUE)
+
+#clb1804 STOCK COMP DATA
+ #stk comp data
+ stockcomp = StockCompData(stockmap = stockmap, fisherymap = fisherymap, auxcat = auxcat, obscat = obscat, aabmcat = aabmcat, isbmcat = isbmcat, write_output = NULL)
+#stk comp data
+ stockcomp_seakaddon = StockCompData(stockmap = stockmap, fisherymap = fisherymap, auxcat = auxcat, obscat = obscat, aabmcat = aabmcat, isbmcat = isbmcat, write_output = NULL, seakaddon = seakaddon)
+ 
+ write.csv(stockcomp, "Results/2018clb/stock comp data without seak addon.csv", row.names=FALSE)
+ write.csv(stockcomp_seakaddon, "Results/2018clb/stock comp data with seak addon.csv", row.names=FALSE)
+ 
+#the all important mystock list
+ mystocks = c("ORCST","CR-tule","CR-sp&su","CR-bright","WACST","PSD","FR-late","FR-early","GS","WCVI","NCBC","SEAK")
+```
+
+# Introduction
+
+<Appendix text>
+
+Table 1. Stock Group Definitions
+
+| Stock Group | Description                        |
+|-------------|------------------------------------|
+| ORCST       | Oregon Coast                       |
+| CR          | Columbia River                     |
+| WACST       | Washington Coast                   |
+| PSD         | Puget Sound                        |
+| FR-late     | Fraser Late                        |
+| FR-early    | Fraser Early                       |
+| GS          | Georgia Strait                     |
+| WCVI        | West Coast Vancouver Island        |
+| NCBC        | North and Central B.C.             |
+| SEAK        | Southeast Alaska                   |
+| NONE$^1$    | None                               |
+| UNK$^2$     | Unknown (i.e. Unsampled)           |
+$^1$ Stock group NONE is comprised of stocks not represented and is contingent on the version of the Chinook Model.
+
+$^2$ UNK is not a stock group per se because it is the unsampled catch. GSI estimates are only available for the portion of the catch sampled for genetics, which may not be the same as the total catch. 
+
+## Estimating Stock Composition from the Chinook Model
+Estimating stock composition from the Chinook Model is simple. First, the proportion of landed catch by model stock is computed as:  
+$$ P_{F,S,Y} = \frac{Q_{F,S,Y}}{\sum_S{Q_{F,S,Y}}} $$
+where $Q_{F,S,Y}$ is the model landed catch by fishery $F$, stock $S$, and year $Y$. Second, the landed catch stock composition is computed as:
+$$ C_{F,S,Y} = C_{F,Y}*P_{F,S,Y} $$
+where $C_{F,Y}$ is the reported landed catch by fishery $F$ and year $Y$. Lastly, since the Chinook Model does not account for the Alaska Hatchery Addon, the landed catch stock composition is adjusted by:
+$$ C_{F,S=AK,Y} =  C_{F,S=AK,Y} + A_{F,S=AK,Y} $$
+where $A_{F,S=AK,Y}$ is the Alaska Hatchery Addon by fishery $F$ and year $Y$ for only the Alaska Stock Group - $S=AKS$ in clb1804 or $S=NSA$ and $S=SSA$ in Phase 2. The Alaska Hatchery Addon adjustment is necessary so that model-based estimates of landed catch stock composition are comparable to gsi-based estimates.
+
+## Appendix E1–Chinook Model Estimates of landed catch stock composition for Alaska troll with (upper) and without (lower) Alaska hatchery add-on and terminal exclusion, 1979–2016.
+
+```{r echo=FALSE, fig.height=8}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 1, caps_on = FALSE, labs_title="Alaska Troll")
+ StackedAreaFigure(stockcomp, fishnum = 1, caps_on = FALSE, labs_title="Alaska Troll")
+```
+
+\blandscape
+
+## Appendix E2–Chinook Model Estimates of landed catch stock composition for North British Columbia troll, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 2, caps_on = FALSE, labs_title="North BC Troll")
+```
+
+\newpage
+
+## Appendix E3–Chinook Model Estimates of landed catch stock composition for Central British Columbia troll, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 3, caps_on = FALSE, labs_title="Central BC Troll")
+```
+
+\newpage
+
+## Appendix E4–Chinook Model Estimates of landed catch stock composition for West Coast Vancouver Island troll, 1979–2016
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 4, caps_on = FALSE, labs_title="West Coast Vancouver Island Troll")
+```
+
+\newpage
+
+## Appendix E5–Chinook Model Estimates of landed catch stock composition for Washington and Oregon troll, 1979–2016
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 5, caps_on = FALSE, labs_title="Washington & Oregon Troll")
+```
+
+\newpage
+
+## Appendix E6–Chinook Model Estimates of landed catch stock composition for Strait of Georgia troll, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 6, caps_on = FALSE, labs_title="Georgia Strai Troll")
+```
+
+\elandscape
+
+## Appendix E7–Chinook Model Estimates of landed catch stock composition for Alaska net with (upper) and without (lower) hatchery add-on and terminal exclusion, 1979–2016.
+
+```{r echo=FALSE, fig.height=8}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 7, caps_on = FALSE, labs_title="Alaska Net")
+ StackedAreaFigure(stockcomp, fishnum = 7, caps_on = FALSE, labs_title="Alaska Net")
+```
+
+\blandscape
+
+## Appendix E8–Chinook Model Estimates of landed catch stock composition for North British Columbia net, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 8, caps_on = FALSE, labs_title="North BC Net")
+```
+
+\newpage
+
+## Appendix E9–Chinook Model Estimates of landed catch stock composition for Central British Columbia net, 1979–2016
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 9, caps_on = FALSE, labs_title="Central BC Net")
+```
+
+\newpage
+
+## Appendix E10–Chinook Model Estimates of landed catch stock composition for West Coast Vancouver Island net, 1979–2016
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 10, caps_on = FALSE, labs_title="West Coast Vancouver Island Net")
+```
+
+\newpage
+
+## Appendix E11–Chinook Model Estimates of landed catch stock composition for Strait of Juan de Fuca net, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 11, caps_on = FALSE, labs_title="Juan de Fuca Net")
+```
+
+\newpage
+
+## Appendix E12–Chinook Model Estimates of landed catch stock composition for North Puget Sound net, 1979–2016
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 12, caps_on = FALSE, labs_title="Puget Sound North Net")
+```
+
+\newpage
+
+## Appendix E13–Chinook Model Estimates of landed catch stock composition for South Puget Sound net, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 13, caps_on = FALSE, labs_title="Puget Sound South Net")
+```
+
+\newpage
+
+## Appendix E14–Chinook Model Estimates of landed catch stock composition for Washington Coast net, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 14, caps_on = FALSE, labs_title="Washington Coast Net")
+```
+
+\newpage
+
+## Appendix E15–Chinook Model Estimates of landed catch stock composition for Columbia River net, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 15, caps_on = FALSE, labs_title="Columbia River Net")
+```
+
+\newpage
+
+## Appendix E16–Chinook Model Estimates of landed catch stock composition for Johnstone Strait net, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 16, caps_on = FALSE, labs_title="Johnstone Strait Net")
+```
+
+\newpage
+
+## Appendix E17–Chinook Model Estimates of landed catch stock composition for Fraser River net, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 17, caps_on = FALSE, labs_title="Fraser Net")
+```
+
+\elandscape
+
+## Appendix E18–Chinook Model Estimates of landed catch stock composition for Alaska sport with (upper) and without (lower) Alaska hatchery add-on and terminal exclusion, 1979–2016.
+
+```{r echo=FALSE, fig.height=8}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 18, caps_on = FALSE, labs_title="Alaska Sport")
+ StackedAreaFigure(stockcomp, fishnum = 18, caps_on = FALSE, labs_title="Alaska Sport")
+```
+
+\blandscape
+
+## Appendix E19–Chinook Model Estimates of landed catch stock composition for North and Central British Columbia sport, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 19, caps_on = FALSE, labs_title="North & Central BC Sport")
+```
+
+\newpage
+
+## Appendix E20–Chinook Model Estimates of landed catch stock composition for West Coast Vancouver Island sport, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 20, caps_on = FALSE, labs_title="West Coast Vancouver Island Sport")
+```
+
+\newpage
+
+## Appendix E21–Chinook Model Estimates of landed catch stock composition for Washington Ocean sport, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 21, caps_on = FALSE, labs_title="Washington Ocean Sport")
+```
+
+\newpage
+
+## Appendix E22–Chinook Model Estimates of landed catch stock composition for North Puget Sound sport, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 22, caps_on = FALSE, labs_title="Puget Sound North Sport")
+```
+
+\newpage
+
+## Appendix E23–Chinook Model Estimates of landed catch stock composition for South Puget Sound sport, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 23, caps_on = FALSE, labs_title="Puget Sound South Sport")
+```
+
+\newpage
+
+## Appendix E24–Chinook Model Estimates of landed catch stock composition for Strait of Georgia sport, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 24, caps_on = FALSE, labs_title="Georgia Strait Sport")
+```
+
+\newpage
+
+## Appendix E25–Chinook Model Estimates of landed catch stock composition for Terminal sport, 1979–2016.
+
+```{r echo=FALSE, fig.height=6}
+#create figure
+ StackedAreaFigure(stockcomp_seakaddon, fishnum = 25, caps_on = FALSE, labs_title="Terminal Sport")
+```
+
+\elandscape
+
+

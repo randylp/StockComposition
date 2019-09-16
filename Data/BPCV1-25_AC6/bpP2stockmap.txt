@@ -1,0 +1,42 @@
+stock	stock acro	stock name	stock group	stock group order	stock group long
+1	SSA 	Southern SE AK      	SEAK	1	Alaska
+2	NSA 	Northern SE AK      	SEAK	1	Alaska
+3	ALS 	Alsek               	SEAK	1	Alaska
+4	TST 	Taku and Stikine    	SEAK	1	Alaska
+5	NBC 	Northern BC         	NCBC	2	N/C BC
+6	CBC 	Central BC          	NCBC	2	N/C BC
+7	FS2 	Fraser Spring 1.2   	FR-early	6	FR-early
+8	FS3 	Fraser Spring 1.3   	FR-early	6	FR-early
+9	FSO 	Fraser Summer Ocean-type 	FR-early	6	FR-early
+10	FSS	Fraser Summer Stream-type	FR-early	6	FR-early
+11	FHF 	Harrison Fall       	FR-late	5	FR-late
+12	FCF 	Chilliwack Fall Hatchery	FR-late	5	FR-late
+13	WVH 	WCVI Hatchery       	WCVI	3	WCVI
+14	WVN 	WCVI Natural        	WCVI	3	WCVI
+15	UGS 	Upper Georgia Strait	GS	4	Georgia Strait
+16	PPS 	Puntledge Summers   	GS	4	Georgia Strait
+17	LGS 	Lower Georgia Strait	GS	4	Georgia Strait
+18	MGS 	Middle Georgia Strait	GS	4	Georgia Strait
+19	NKF 	Nooksack Fall       	PSD	7	Puget Sound
+20	PSF 	Pgt Sd Fing         	PSD	7	Puget Sound
+21	PSN 	Pgt Sd NatF         	PSD	7	Puget Sound
+22	PSY 	Pgt Sd Year         	PSD	7	Puget Sound
+23	NKS 	Nooksack Spring     	PSD	7	Puget Sound
+24	SKG 	Skagit Wild         	PSD	7	Puget Sound
+25	STL 	Stillaguamish Wild  	PSD	7	Puget Sound
+26	SNO 	Snohomish Wild      	PSD	7	Puget Sound
+27	WCH 	WA Coastal Hat      	WACST	8	WA Coast
+28	WCN 	WA Coastal Wild     	WACST	8	WA Coast
+29	WSH 	Willamette R        	CR-sp&su	10	Columbia-sp/su
+30	CWS 	Spr Cowlitz Hat     	CR-sp&su	10	Columbia-sp/su
+31	SUM 	Col R Summer        	CR-sp&su	10	Columbia-sp/su
+32	URB 	UpRiver Brights     	CR-bright	9	Columbia-bright
+33	SPR 	Spring Creek Hat    	CR-tule	11	Columbia-tule
+34	BON 	Lwr Bonneville Hat  	CR-tule	11	Columbia-tule
+35	CWF 	Fall Cowlitz Hat    	CR-tule	11	Columbia-tule
+36	LRW 	Lewis R Wild        	CR-bright	9	Columbia-bright
+37	LYF 	Lyons Ferry         	CR-bright	9	Columbia-bright
+38	MCB 	Mid Col R Brights   	CR-bright	9	Columbia-bright
+39	NOC 	North Oregon Coast  	ORCST	12	OR Coast
+40	MOC 	Mid-Oregon Coast    	ORCST	12	OR Coast
+41	YAK 	Yakutat Forelands   	SEAK	1	Alaska

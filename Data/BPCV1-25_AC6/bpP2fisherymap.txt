@@ -1,0 +1,49 @@
+fishery	fisheryShortName	fisheryNameLong	fishery group	fishery group order
+1	ALASKA T	Alaska Troll	Alaska Troll	1
+2	TAK YAK N	Alaska Yakutat Terminal Net	Alaska Yakutat Terminal Net	2
+3	NORTH T	North B.C. Troll	North B.C. Troll	3
+4	CENTRL T	Central B.C. Troll	Central B.C. Troll	4
+5	WCVI T	West Coast Vancouver Island Troll	West Coast Vancouver Island Troll	5
+6	N FALCON T	North of Falcon Troll	North of Falcon Troll	6
+7	S FALCON T	South of Falcon Troll	South of Falcon Troll	7
+8	GEO ST T	Georgia Strait Troll	Georgia Strait Troll	8
+9	ALASKA N	Alaska Net	Alaska Net	9
+10	NORTH N	North B.C. Net	North B.C. Net	10
+11	CENTRL N	Central B.C. Net	Central B.C. Net	11
+12	WCVI N	West Coast Vancouver Island Net	West Coast Vancouver Island Net	12
+13	J DE F N	Juan De Fuca Net	Juan De Fuca Net	13
+14	PGSDN N	Puget Sound North Net	Puget Sound North Net	14
+15	PGSDO N	Puget Sound Other Net	Puget Sound Other Net	15
+16	WASH CST N	Washington Coast Net	Washington Coast Net	16
+17	TCOL R N	Columbia River Net	Columbia River Net	17
+18	TAK TBR N	Alaska Transboundary Terminal Net	Alaska Transboundary Terminal Net	18
+19	TBC TBR FN	B.C. Transboundary Freshwater Net	B.C. Transboundary Freshwater Net	19
+20	TCENTRAL FN	Central B.C. Freshwater Net	Central B.C. Freshwater Net	20
+21	TGEO ST FN	Georgia Strait Freshwater Net	Georgia Strait Freshwater Net	21
+22	TFRAS FN	Fraser Freshwater Net	Fraser Freshwater Net	22
+23	TPS FN	Puget Sound Freshwater Net	Puget Sound Freshwater Net	23
+24	TWAC FN	Washington Coast Freshwater Net	Washington Coast Freshwater Net	24
+25	JNST N	Johnstone Strait Net	Johnstone Strait Net	25
+26	FRASER N	Fraser Net	Fraser Net	26
+27	ALASKA S	Alaska Sport	Alaska Sport	27
+28	CBC S	Central B.C. Sport	Central B.C. Sport	28
+29	NBC AABM S	North B.C. AABM Sport	North B.C. AABM Sport	29
+30	NBC ISBM S	North B.C. ISBM Sport	North B.C. ISBM Sport	30
+31	WCVI AABM S	West Coast Vancouver Island AABM Sport	West Coast Vancouver Island AABM Sport	31
+32	WCVI ISBM S	West Coast Vancouver Island ISBM Sport	West Coast Vancouver Island ISBM Sport	32
+33	N FALCON S	North of Falcon Sport	North of Falcon Sport	33
+34	S FALCON S	South of Falcon Sport	South of Falcon Sport	34
+35	PGSDN S	Puget Sound North Sport	Puget Sound North Sport	35
+36	PGSDO S	Puget Sound Other Sport	Puget Sound Other Sport	36
+37	TYK YAK FN	Yukon Yakutat Freshwater Net	Yukon Yakutat Freshwater Net	37
+38	GEO ST S	Georgia Strait Sport	Georgia Strait Sport	38
+39	BC JF S	B.C. Juan De Fuca Sport	B.C. Juan De Fuca Sport	39
+40	TCOL R S	Columbia River Sport	Columbia River Sport	40
+41	TAK TBR S	Alaska Transboundary Terminal Sport	Alaska Transboundary Terminal Sport	41
+42	TNORTH FS	North B.C. Freshwater Sport	North B.C. Freshwater Sport	42
+43	TCENTRAL FS	Central B.C. Freshwater Sport	Central B.C. Freshwater Sport	43
+44	TWCVI FS	West Coast Vancouver Island Freshwater Sport	West Coast Vancouver Island Freshwater Sport	44
+45	TFRASER FS	Fraser River Freshwater Sport	Fraser River Freshwater Sport	45
+46	TGS FS	Georgia Strait Freshwater Sport	Georgia Strait Freshwater Sport	46
+47	TPS FS	Puget Sound Freshwater Sport	Puget Sound Freshwater Sport	47
+48	TSF FS	South of Falcon Freshwater Sport	South of Falcon Freshwater Sport	48
